@@ -24,8 +24,8 @@ model.predict(test_data)\
 
 ### Learner Class
 The learner can be created with the following command: \
-learner(data,model,wd=0.0,al_mom=0.95,al_RMS=0.95,global_dropout=0,loss_function='mse') \
-The learner controls all routines that are needed for the training of the model and the loss function that is used. For the loss function one can use 'mse' for the mean squared error and 'ce' for cross entropy loss. The parameter $wd sets the rate of weight decay that is used during the training. The learning rate can be dynamically adjusted through $al_mom, which sets the momentum and $al_RMS, which sets the RMSprop. In addtion $global_dropout can be used to set a global dropout rate for all layers. This option will override any dropout rates that were set during the model building. \
+learner(data,model,wd=0.0,al_mom=0.95,al_RMS=0.95,global_dropout=0,loss_function='se') \
+The learner controls all routines that are needed for the training of the model and the loss function that is used. For the loss function one can use 'se' for the squared error and 'ce' for cross entropy loss. The parameter $wd sets the rate of weight decay that is used during the training. The learning rate can be dynamically adjusted through $al_mom, which sets the momentum and $al_RMS, which sets the RMSprop. In addtion $global_dropout can be used to set a global dropout rate for all layers. This option will override any dropout rates that were set during the model building. \
 Once the learner is created we can train the model through\
 learner.learn(learning_rate,epochs) \
 The $learning_rate sets the learning rate that is used and $epochs refers to the number of times the model goes through all data batches for the training.\
@@ -37,7 +37,7 @@ Cycle learn will linearly rise the learning rate from $learning_rate/10 to the f
 ## Implemented Concepts
 - Dense layers
 - Activation functions (ReLu, Sigmoid, SoftMax)
-- Loss functions (Mean squared error, Cross entropy loss)
+- Loss functions (squared error, Cross entropy loss)
 - Back propagation
 - Adam optimizer
 - One cycle fit
